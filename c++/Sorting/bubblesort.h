@@ -1,7 +1,7 @@
 #pragma once
 
 template<typename T>
-void bubblesort(T* arr, unsigned int size)
+void bubblesort(T arr[], unsigned int size)
 {
 	for (int i = 0; i < size - 1; i++)
 	{

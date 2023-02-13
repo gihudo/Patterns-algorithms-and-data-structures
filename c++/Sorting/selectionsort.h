@@ -1,7 +1,7 @@
 #pragma once
 
 template<typename T>
-void selectionsort(T* arr, unsigned int size)
+void selectionsort(T arr[], unsigned int size)
 {
 	for (int i = 0; i < size; i++)
 	{
