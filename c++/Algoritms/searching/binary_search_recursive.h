@@ -1,3 +1,5 @@
+#pragma once
+
 template<typename T>
 int binary_search_recursive(const T arr[], T value, int left, int right)
 {
