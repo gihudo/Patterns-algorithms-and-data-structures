@@ -1,30 +1,32 @@
 #pragma once
 
+#include <vector>
+
 template<typename T>
-int partion(T arr[], int left , int right)
+int partion(std::vector<T> &vec, int left , int right)
 {
 	int index = left;
-	int pivot = arr[left];
+	int pivot = vec[left];
 
 	for (int i = left + 1; i <= right; i++)
 	{
-		if (arr[i] < pivot)
+		if (vec[i] < pivot)
 		{
 			index++;
-			std::swap(arr[i], arr[index]);
+			std::swap(vec[i], vec[index]);
 		}
 	}
-	std::swap(arr[left], arr[index]);
+	std::swap(vec[left], vec[index]);
 	return index;
 }
 
 template<typename T>
-void quicksort(T arr[], int left, int right)
+void quicksort(std::vector<T> &vec, int left, int right)
 {
 	if (left >= right)
 		return;
 
-	int pivot = partion(arr, left, right);
-	quicksort(arr, left, pivot - 1);
-	quicksort(arr, pivot + 1, right);
+	int pivot = partion(vec, left, right);
+	quicksort(vec, left, pivot - 1);
+	quicksort(vec, pivot + 1, right);
 }

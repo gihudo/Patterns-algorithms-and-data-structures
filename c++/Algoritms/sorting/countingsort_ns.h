@@ -1,28 +1,27 @@
-#pragma once
-
 #include <algorithm>
+#include <vector>
 
-void countingsort(int arr[], unsigned int size)
+void countingsort(std::vector<int>& vec)
 {
-	int max = *std::max_element(arr, arr + size);
-	int min = *std::min_element(arr, arr + size);
+	int max = *std::max_element(vec.begin(), vec.end());
+	int min = *std::min_element(vec.begin(), vec.end());
 	int range = max - min + 1;
 
-	int* count_arr = new int[range] {0};
-	int* sorted_arr = new int[size] {0};
+	std::vector<int> count_vec(range);
+	std::vector<int> sorted_vec(vec.size());
 
-	for (int i = 0; i < size; i++)
-		count_arr[arr[i] - min]++;
+	for (int i = 0; i < vec.size(); i++)
+		count_vec[vec[i] - min]++;
 
 	for (int i = 1; i < range; i++)
-		count_arr[i] += count_arr[i - 1];
+		count_vec[i] += count_vec[i - 1];
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < vec.size(); i++)
 	{
-		sorted_arr[count_arr[arr[i] - min] - 1] = arr[i];
-		count_arr[arr[i] - min]--;
+		sorted_vec[count_vec[vec[i] - min] - 1] = vec[i];
+		count_vec[vec[i] - min]--;
 	}
 
-	for (int i = 0; i < size; i++)
-		arr[i] = sorted_arr[i];
+	for (int i = 0; i < vec.size(); i++)
+		vec[i] = sorted_vec[i];
 }

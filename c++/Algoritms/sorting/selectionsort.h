@@ -1,16 +1,18 @@
 #pragma once
 
+#include <vector>
+
 template<typename T>
-void selectionsort(T arr[], unsigned int size)
+void selectionsort(std::vector<T>& vec)
 {
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < vec.size(); i++)
 	{
 		int iMin = i;
-		for (int j = i + 1; j < size; j++)
+		for (int j = i + 1; j < vec.size(); j++)
 		{
-			if (arr[iMin] > arr[j])
+			if (vec[iMin] > vec[j])
 				iMin = j;
 		}
-		std::swap(arr[i], arr[iMin]);
+		std::swap(vec[i], vec[iMin]);
 	}
 }

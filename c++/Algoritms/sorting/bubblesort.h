@@ -1,14 +1,16 @@
 #pragma once
 
+#include <vector>
+
 template<typename T>
-void bubblesort(T arr[], unsigned int size)
+void bubblesort(std::vector<T>& vec)
 {
-	for (int i = 0; i < size - 1; i++)
+	for (int i = 0; i < vec.size(); i++)
 	{
-		for (int j = 0; j < size - i - 1; j++)
+		for (int j = 0; j < vec.size() - i - 1; j++)
 		{
-			if (arr[j] > arr[j + 1])
-				std::swap(arr[j], arr[j + 1]);
+			if (vec[j] > vec[j + 1])
+				std::swap(vec[j], vec[j + 1]);
 		}
 	}
 }

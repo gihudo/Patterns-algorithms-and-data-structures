@@ -1,11 +1,13 @@
 #pragma once
 
+#include <vector>
+
 template<typename T>
-void insertionsort(T arr[], unsigned int size)
+void insertionsort(std::vector<T> &vec)
 {
-	for (int i = 1; i < size; i++)
+	for (int i = 1; i < vec.size(); i++)
 	{
-		for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--)
-			std::swap(arr[j], arr[j - 1]);
+		for (int j = i; j > 0 && vec[j] < vec[j - 1]; j--)
+			std::swap(vec[j], vec[j - 1]);
 	}
 }
