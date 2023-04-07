@@ -1,3 +1,5 @@
+#pragma once
+
 #include <algorithm>
 #include <vector>
 
@@ -16,7 +18,7 @@ void countingsort(std::vector<int>& vec)
 	for (int i = 1; i < range; i++)
 		count_vec[i] += count_vec[i - 1];
 
-	for (int i = 0; i < vec.size(); i++)
+	for (int i = vec.size() - 1; i >= 0; i--)
 	{
 		sorted_vec[count_vec[vec[i] - min] - 1] = vec[i];
 		count_vec[vec[i] - min]--;
